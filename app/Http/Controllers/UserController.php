@@ -217,6 +217,12 @@ class UserController extends Controller
             $filename = $request->profilephoto;
         }
 
+        if ($request->password == $data->password) {
+            $password = $data->password;
+        } else {
+            $password = bcrypt($request->password);
+        }
+        
         $field = [
             'user_code'      => $request->userCode,
             'name'           => $request->name,
@@ -225,7 +231,7 @@ class UserController extends Controller
             'phone'          => $request->phone,
             'role'           => $request->role,
             'profile_photo'  => $filename,
-            'password'       => bcrypt($request->password)
+            'password'       => $password
         ];
 
         if ($request->email == $data->email) {
