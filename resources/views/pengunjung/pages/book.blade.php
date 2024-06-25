@@ -82,9 +82,9 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="col-md-6 d-flex mb-4">
-                                <label for="total-price" class="col-md-3 col-form-label" style="font-weight: 900">Price Total: IDR</label>
-                                <div class="col-md-3 d-flex">
+                            <div class="book-price-total d-flex mb-4">
+                                <label for="total-price" class="book-prctotal-label col-form-label" style="font-weight: 900">Price Total: IDR</label>
+                                <div class="book-prctotal-input">
                                     <input type="number" class="form-control-plaintext" name="totalPrice" id="total-price" value="0" readonly>
                                 </div>
                             </div>

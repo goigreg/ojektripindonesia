@@ -1139,10 +1139,37 @@ footer{
     }
 }
 /* ========================================= Styles for page of booking============================================= */
+.book-price-total{
+    width: 30%;
+}
+.book-prctotal-label{
+    width: 50%;
+}
+.book-prctotal-input{
+    width: 50%;
+}
+@media(max-width: 997px){
+    .book-price-total{
+        width: 50%;
+    }
+}
+@media(max-width: 767px){
+    .book-price-total{
+        width: 55%;
+    }
+}
+@media(max-width: 507px){
+    .book-price-total{
+        width: 70%;
+    }
+}
 @media(max-width: 467px){
     .people-number label{
         align-content: end;
         min-height: 70px;
+    }
+    .book-price-total{
+        width: 85%;
     }
 }
 /* ========================================= Styles for page of check out============================================= */
@@ -1249,8 +1276,12 @@ footer{
 @media(max-width: 767px){
     .ticket-container{
         width: 100%;
+        border-radius: 0;
         box-shadow: none;
         margin-top: 0;
+    }
+    .ticket-left-header{
+        border-bottom-right-radius: 0;
     }
     .ticket-logo img{
         width: 200px;
