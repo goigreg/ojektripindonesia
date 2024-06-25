@@ -1,0 +1,1320 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main{    
+    min-height: 100vh;
+    overflow: auto;
+}
+.page-background{
+    background-color: rgb(203,204,204);
+    min-height: 100vh;
+    margin: 0 75px 0 75px;
+}
+@media (max-width: 1195px){
+.page-background{
+    margin: 0;
+}
+.container{
+    margin: auto;
+}
+}
+@media(max-width: 767px){
+    .page-background{
+        margin-top: -20px;
+    }
+}
+/* ==============================================CSS for admin pages================================================== */
+
+.ck-editor__editable_inline{
+    height: 200px;
+}
+
+/* ==============================================CSS for the page og Admin login================================================== */
+.login-card{
+    width: 30%;
+}
+@media(max-width: 1087px){
+    .login-admin-card{
+        width: 352px;
+    }
+    .login-admin-label{
+        width: 100%;
+    }
+}
+/* ==============================================CSS for users pages================================================== */
+
+/*Style for Contents*/
+section{
+    min-height: 80vh;
+    width: auto;
+}
+/*Style for Footer*/
+/*====================================Style for Admin Sidebar===========================================*/
+#side-nav{
+    background: #000;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+}
+.sidebar-items{
+    position: fixed;
+    left: 11px;
+    top: 10px;
+}
+.sidebar-content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color{
+    background: #eee;
+    height: 3px;
+}
+.sidebar li.active{
+    background: rgb(13, 202, 240);
+    border-radius: 3px;
+}
+.sidebar li.active a{
+    color: #fff;
+}
+.sidebar li a{
+    color: #fff;
+}
+.logOut{
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    color: #fff;
+}
+.logOut:hover{
+    background-color: rgb(174, 174, 174);
+    border-radius: 3px;
+}
+.sidebar li{
+    border-radius: 3px;
+}
+.sidebar li:hover{
+    background-color: rgb(174, 174, 174);
+    border-radius: 3px;
+}
+.logo-box{
+    width: 215px;
+    margin: auto;
+}
+.compName{
+    width: 130px;
+}
+.sidebar-logo{
+    width: 55px;
+    height: 53px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.sidebar-logo img{
+    width: 75.5px;
+    height: 75.5px;
+    object-fit: cover;
+    object-position: -10px -1.5px;
+}
+
+@media(max-width: 767px){
+    #side-nav{
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+    .sidebar-items{
+        position: static;
+    }
+    #side-nav.active{
+        margin-left: 0;
+    }
+}
+/*====================================Style for Admin Navbar===========================================*/
+.navbar-brand img{
+    width: 32px;
+}
+.admin-icon-img{
+    width: 35px;
+    height: 35px;
+}
+.admin-icon-img img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+}
+/*=================================================Style for Dashboard =============================================*/
+.card-btn{
+    width: 230px;
+}
+.bar-selected{
+    position: relative;
+    top: 7px;
+    height: 5px;
+    width: 220px;
+    margin: auto;
+    border-radius: 50px;
+}
+.dash-circle{
+    position: absolute;
+    top: 5px;
+    left: 65px;
+    background-color: red;
+    color: white;
+    width: 37px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 0 8px;
+}
+.new-data{
+    background-color: #9cf5f0 !important;
+}
+/*=================================================Style for Add Package Modal =============================================*/
+.photo1Preview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 5px;
+}
+.photo2Preview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 5px;
+}
+.photo3Preview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 5px;
+}
+/*=================================================Style for user in admin pages =============================================*/
+.photo-prev{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+.photo-prev img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+.adminPhotoPreview{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+/*=================================================Style for company profile =============================================*/
+.c-profile-card{
+    display: flex;
+}
+.primary-logo-img{ 
+    position: relative;
+    margin: 30px auto 10px auto;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.primary-logo-img img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+.secondary-logo-img{
+    margin: 30px auto 10px auto;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.secondary-logo-img img{
+    position: absolute;
+    bottom: 0;
+    height: 68px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+.about-company{
+    margin: 10px 50px;
+}
+.about-company h6{
+    font-weight: 900;
+    color: #f18930;
+}
+.about-company p{
+    text-align: justify;
+}
+.vision{
+    margin: 10px 50px;
+}
+.vision h6{
+    font-weight: 900;
+    color: #f18930;
+}
+.vision p{
+    text-align: justify;
+}
+.mission{
+    margin: 10px 50px;
+}
+.mission h6{
+    font-weight: 900;
+    color: #f18930;
+}
+.mission p{
+    text-align: justify;
+}
+.company-email{
+    margin: 10px 50px;
+}
+.company-email h6{
+    font-weight: 900;
+    color: #f18930;
+}
+.company-email p{
+    text-decoration: none;
+}
+.company-phone{
+    margin: 10px 50px;
+}
+.company-phone h6{
+    font-weight: 900;
+    color: #f18930;
+}
+a{
+    text-decoration: none;
+    color: rgb(33, 37, 41);
+}
+.company-address{
+    margin: 10px 50px;
+}
+.company-address h6{
+    font-weight: 900;
+    color: #f18930;
+}
+.company-address p{
+    text-align: center;
+}
+/*=================================================Style for user navbar =============================================*/
+.cust-nav{
+    background-color: #fff;
+    height: 70px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.5rem;
+    align-items: center;
+    margin: 20px auto;
+    width: 80%;
+}
+.logo-path{
+    background-color: #38C1BA;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 10px;
+    width: 138px;
+    height: 70px;
+    left: 0;
+    padding-left: 10px;
+}
+.logo-path img{
+    width: 128px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 13px;
+}
+.triangle-right::before{
+    position: absolute;
+    content: '';
+    left: 137px;
+    top: 0;
+	width: 0;
+	height: 70px;
+	border-top: 23px solid transparent;
+	border-left: 20px solid #38C1BA;
+	border-bottom: 23px solid transparent;
+}
+.nav-brand{
+    font-weight: 500;
+    color: #38C1BA;
+    font-size: 24px;
+    transition: 0.3s color;
+}
+.circle{
+    position: absolute;
+    top: 1px;
+    right: -15px;
+    border-radius: 100%;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    padding: 1px 8px;
+}    
+.notif{
+    position: relative;
+    display: inline-block;
+}
+.user-icon{
+    background-color: #38C1BA;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 15px 2px 2px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.user-icon:hover{
+    background-color: #1d9b94;
+}
+.user-icon img{
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 20px;
+}
+.nav-user-icon2{
+    visibility: hidden;
+}
+.log-reg-button1{
+    visibility: visible;
+}
+.log-reg-button2{
+    visibility: hidden;
+}
+.login-button{
+    background-color: #38C1BA;
+    color: #fff;
+    font-size: 14px;
+    padding: 2px 20px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.register-button{
+    background-color: transparent;
+    color: #38C1BA;
+    border: 0;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button:hover{
+    background-color: #1d9b94;
+}
+.register-button:hover{
+    color: #1d9b94;
+}
+.navbar-toggler{
+    border: none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+.user-nav{
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.user-nav:hover, .user-nav.active{
+    color: #000;
+}
+.profile{
+    text-decoration: none;
+    color: #000;
+}
+.offcanvas-header{
+    background-color: #38C1BA;
+}
+
+@media (min-width: 991px){
+    .user-nav::before{
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 4px;
+        border-radius: 50px;
+        background-color: #38C1BA;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .user-nav:hover::before, .user-nav.active::before{
+        width:30px;
+        visibility: visible;
+    }
+    .circle{
+        position: absolute;
+        top: 1px;
+        right: 2px;
+        border-radius: 100%;
+        background-color: red;
+        color: white;
+        font-size: 10px;
+        padding: 1px 8px;
+    }
+    .nav-user-icon1{
+        visibility: hidden;
+    }  
+    .nav-user-icon2{
+        visibility: visible;
+    }  
+    .log-reg-button1{
+        visibility: hidden;
+    }
+    .log-reg-button2{
+        visibility: visible;
+    }
+}
+@media(max-width: 767px){
+    .cust-nav{
+        position: fixed;
+        width: 93.5%;
+        border-radius: 0;
+    }
+    .logo-path{
+        border-radius: 0;
+    }
+    .user-nav{
+        display: inline-block;
+    }
+    .user-nav::before{
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 4px;
+        border-radius: 20px;
+        background-color: #38C1BA;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .user-nav.active::before{
+        width:100%;
+        visibility: visible;
+    }
+}
+
+/* ================================================Styles for user footer========================================== */
+footer{
+    background: #38C1BA;
+    color: white;
+    padding-top: 50px;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.footer-content h3{
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.footer-content p{
+    margin: auto;
+    padding: 7px;
+}
+.footer-content ul{
+    text-align: center;
+}
+.list{
+    padding: 0;
+}
+.list li{
+    width: auto;
+    text-align: center;
+    list-style-type: none;
+    padding: 7px;
+    position: relative;
+    color: white;
+}
+.list a{
+    color: white;
+}
+.list li::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: #f18930;
+    transition-duration: 0.5s;
+}
+.list li:hover::before{
+    width: 50px;
+}
+.social-icons{
+    text-align: center;
+    padding: 0;
+}
+.social-icons li{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+.social-icons i{
+    color: white;
+    font-size: 25px;
+}
+.footer-content a{
+    text-decoration: none;
+}
+.footer-content a:hover{
+    color: #f18930;
+}
+.social-icons i:hover{
+    color: #f18930;
+}
+.bottom-bar{
+    text-align: center;
+    padding: 10px 0;
+}
+.bottom-bar p{
+    color: white;
+    margin: 0;
+    font-size: 16px;
+    padding: 7px;
+}
+
+/* ==============================================Styles for home pages============================================= */
+.carousel-1 img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.8);
+}
+.carousel-2 img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.8);
+}
+.carousel-3 img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.8);
+}
+.package-container{
+    padding: 45px;
+}
+.package-img-path{
+    height: 232px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.package-img{
+    width: 100%;
+    height: 232px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 40px;
+    padding: 20px 20px 0 20px;  
+}
+.package-title h2{
+    color: #f18930;
+}
+.package-title h2::before{
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 4px;
+    border-radius: 50px;
+    background-color: #1d9b94;
+    transition: 0.3s ease-in-out;
+}
+.package-name-home{
+    height: 23px;
+    overflow: hidden;
+}
+.desc-home{
+    height: 90px;
+    overflow: hidden;
+}
+.package-card{
+    border-radius: 30px;
+    height: 470px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.package-cbody{
+    padding: 25px;
+}
+.package-cbody a{
+    text-decoration: none;
+    color: #1d9b94;
+}
+.package-cbody a:hover{
+    color: #36c3bb;
+}
+.btn-book{
+    background-color: #36c3bb;
+    color: white;
+    border: 0;
+    border-radius: 50px;
+    width: 110px;
+}
+.btn-book:hover{
+    background-color: #1d9b94;
+}
+.package-card h5{
+    color: #f18930;
+    line-height: 20px;
+}
+.package-card h3{
+    color: #f18930;
+    font-size: 18px;
+}
+.package-card span{
+    color: #f18930;
+    font-size: 16px;
+}
+.btn-vmore{
+    position: relative;
+    bottom: 30px;
+    right: 15px;
+    text-align: end;
+}
+.btn-vmore a{
+    text-decoration: none;
+    color: #36c3bb;
+}
+.btn-vmore a:hover{
+    color: #1d9b94;
+}
+@media(max-width: 991px){
+    .package-container{
+        padding: 45px 0 10px 0;
+    }
+}
+@media(max-width: 767px){
+    .package-card, .package-img{
+        border-radius: 0;
+    }
+    .package-img{
+        padding: 0;
+    }
+    .btn-view-packages{
+        border-radius: 0;
+    }
+}
+/*================================================== Styles for packages on tour page=================================== */
+/* ========Category card========= */
+.cont-category{
+    position: relative;
+}
+.row-category{
+    position: fixed;
+    top: 112px;
+    left: 117px;
+}
+/* ========Category card========= */
+.cont-picture{
+    position: relative;
+}
+.card-tours{
+    justify-content: end;
+}
+.row-picture{
+    position: fixed;
+    bottom: 70px;
+    border-radius: 5px;
+}
+.row-picture img{
+    border-radius: 5px;
+}
+/* ========Package cards========= */
+.cont-morecard{
+    margin-top: -20px;
+}
+.search-bar{
+    margin-top: -25px;
+    justify-content: end;
+}
+.search-tour{
+    background-color: transparent !important;
+}
+.btn-search-tour{
+    border-color: rgb(222, 226, 230);
+}
+.package-row{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;    
+}
+.img-frame{
+    padding: 20px 8px;
+}
+.morecard-img{
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.img-tours{
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.desc-tour{
+    height: 115px;
+    overflow: hidden;
+}
+.morecard-text a{
+    text-decoration: none;
+    color: #1d9b94;
+}
+.morecard-text a:hover{
+    text-decoration: none;
+    color: #36c3bb;
+}
+.morecard-text h5{
+    color: #f18930;
+    line-height: 15px;
+}
+.morecard-text h3{
+    color: #f18930;
+    font-size: 18px;
+    line-height: 27px;
+}
+.prc-btn{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.prc-btn a{
+    background-color: #36c3bb;
+    color: white;
+    border: 0;
+    border-radius: 50px;
+    width: 110px;
+}
+.prc-btn a:hover{
+    color: white;
+    background-color: #1d9b94;
+}
+@media(max-width: 1125px){
+    .cont-category{
+        display: none;
+    }
+    .search-bar{
+        margin-top: 25px;
+        justify-content: center;
+    }
+    .card-tours{
+        justify-content: center;
+    }
+}
+@media(max-width: 767px){
+    .btn-all{
+        display: none;
+    }
+    .package-row{
+        padding: 0;
+    }
+    .img-frame{
+        padding: 0;
+    }
+    .morecard-img{
+        height: 232px;
+    }
+    .img-tours{
+        width: 100%;
+        height: 232px;
+        object-fit: cover;
+        object-position: right;
+    }
+    .about-package-tours{
+        padding: 26px 26px 0 26px;
+    }
+    .desc-tour{
+        height: 90px;
+        overflow: hidden;
+    }
+    .prc-btn{
+        margin-top: 10px;
+    }
+}
+/* ============================================== Styles for page of details================================================== */
+.desc-img{
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.6);
+}
+.text-overimg{
+    bottom: 0;
+}
+.item-left{
+    margin-bottom: -30px;
+}
+.item-left h1{
+    color: white;
+    font-weight: 900;
+    font-size: 36px;
+}
+.item-left h3{
+    font-weight: 200;
+    color: white;
+}
+.item-left h5{
+    font-weight: 200;
+    color: white;
+}
+.item-left p{
+    width: 125px;
+    margin-left: 10px;
+    font-weight: 400;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgb(255, 193, 7);
+    color: white;
+}
+.book-now{
+    left: 15px;
+}
+.book-now a{
+    bottom: 0;
+    width: 210px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 0;
+}
+.book-now-2{
+    width: 215px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 0;
+    margin-bottom: 24px;
+}
+.btn-book-custom-2{
+    display: none;
+}
+.book-now a:hover{
+    color: white;
+    background-color: #bba90a;
+}
+.btn-book-custom{
+    justify-content: end;
+}
+.contact-us{
+    left: 12px;
+}
+.contact-us button{
+    width: 215px;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 0;
+}
+.contact-us a:hover{
+    color: white;
+    background-color: #bba90a;
+}
+.carousel-images{
+    height: 250px;
+    width: 273px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    overflow: hidden;
+}
+.carousel-images img{
+    height: 250px;
+    width: 273px;
+    object-fit: cover;    
+}
+.prev-next{
+    position: relative;
+    left: 12px;
+    bottom: 135px;
+}
+/* ========Tabel Itinerary========= */
+.tb-itinerary table, th, tr, td{
+    background-color: rgba(0, 0, 0, 0.0) !important;
+}
+.btn-book-3{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+@media(max-width: 991px){
+    .carousel-images{
+        width: 100%;
+    }
+    .carousel-images img{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;        
+    }
+    .prev-next{
+        position: static;
+    }
+    .btn-book-custom{
+        display: none;
+    }
+    .btn-book-custom-2{
+        display: block;
+    }
+    .book-now{
+        display: none;
+    }
+    .book-now-2{
+        width: 155px;
+        margin: 10px;
+    }
+    .contact-us button{
+        width: 155px;
+        margin: 10px;
+    }
+}
+@media(max-width: 397px){
+    .book-now-2{
+        height: auto;
+    }
+    .contact-us button{
+        height: auto;
+    }
+}
+/* ========================================= Styles for page of cart============================================= */
+.cart-container{
+    width: 97%;
+    margin: auto;
+}
+.card-cart{
+    width: 49%;
+}
+.price-cart{
+    text-align: right;
+    font-weight: 900;
+    color: #f18930;
+}
+.cart-warning{
+    width: 97%;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #F2F7A1;
+}
+.cart-warning p{
+    margin: 7px;
+}
+@media(max-width: 991px){
+    .card-cart{
+        width: 100%;
+    }
+}
+/* ========================================= Styles for page of member profiles============================================= */
+.container-profile{
+    width: 97%;
+    margin: auto;
+    margin-top: 150px;}
+.profile-card{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;    
+}
+.box{
+    position: relative;
+    bottom: 100px;
+    margin: auto;
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    
+}
+.box img{
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+}
+.editPhoto{
+    bottom: 30px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 28px;
+}
+.logout-member{
+    position: relative;
+    top: 30px;
+    text-align: center;
+    margin: auto;
+}
+.btn-edit{
+    background-color: #36c3bb;
+    color: white;
+    margin: auto;
+}
+.btn-edit:hover{
+    background-color: #1d9b94;
+    color: white;
+}
+.btn-setting{
+    padding-left: 0;
+}
+.photoPrev-box{
+    margin: auto;
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    
+}
+.photoPreview{
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 100%;
+}
+.bookHistory-card{
+    display: flex;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.btn-book-history{
+    justify-content: end;
+}
+.empty-div{
+    width: 100%;
+    height: 20px;
+    border: 0;
+    background-color: transparent;
+}
+@media(max-width: 767px){
+    .auth-name{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .bookHistory-card{
+        display: block;
+    }
+    .btn-book-history{
+        justify-content: end;
+        padding: 5px 20px;
+    }
+}
+@media(max-width: 467px){
+    .profile-detail h3{
+        font-size: 18px;
+    }
+}
+/* ========================================= Styles for page of booking============================================= */
+@media(max-width: 467px){
+    .people-number label{
+        align-content: end;
+        min-height: 70px;
+    }
+}
+/* ========================================= Styles for page of check out============================================= */
+.choosen-bank{
+    background-color: #9cf5f0;
+}
+.bank-logo img{
+    width: 70px;
+}
+.bank-account{
+    padding-top: 10px;
+}
+.bank-account p{
+    line-height: 15px;
+}
+/* ========================================= Styles for page of e-ticekt============================================= */
+.ticket-container{
+    width: 60%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    margin: auto;
+    margin-top: 24px;
+    margin-bottom: 70px;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.ticket-header{
+    display: flex;
+    justify-content: space-between;
+}
+.ticket-left-header{
+    width: 50%;
+    background-color: #36c3bb;
+    border-bottom-right-radius: 10px;
+}
+.ticket-right-header{
+    width: 50%;
+}
+.ticket-logo{
+    margin-left: 20px;
+    overflow: hidden;
+}
+.ticket-logo h6{
+    padding-right: 20px;
+    color: #fff;
+}
+.ticket-logo img{
+    width: 250px;
+}
+.ticket-number{
+    margin: 20px;
+}
+.ticket-booking-code{
+    display: flex;
+    padding-left: 24px;
+}
+.ticket-booking-code h5{
+    padding-left: 5px;
+}
+.ticket-book-det-header{
+    padding: 24px;
+}
+.ticket-labels{
+    width: 30%;
+}
+.ticket-data{
+    width: 70%;
+}
+.ticket-book-det-data{
+    display: flex;
+    justify-content: space-between;
+}
+.ticket-table{
+    width: 100%;
+    line-height: 24px;
+    margin-bottom: 16px;
+    border-collapse: collapse;
+    border-color: rgb(222, 226, 230);
+    color: rgb(33, 37, 41);
+    display: table;
+}
+.ticket-table th{
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+.ticket-table td{
+    text-align: center;
+    line-height: 24px;
+    margin-bottom: 16px;
+}
+.ticket-not-paid{
+    color: red;
+}
+@media(max-width: 1024px){
+    .ticket-container{
+        width: 80%;
+    }
+    .ticket-logo img{
+        width: 225px;
+    }
+}
+@media(max-width: 767px){
+    .ticket-container{
+        width: 100%;
+        box-shadow: none;
+        margin-top: 0;
+    }
+    .ticket-logo img{
+        width: 200px;
+    }
+}
+@media(max-width: 547px){
+    .ticket-container{
+        font-size: 14px;
+    }
+    .ticket-logo img{
+        width: 150px;
+    }
+    .ticket-container h4, h5, h6{
+        font-size: 16px;
+    }
+    .ticket-book-det-header{
+        padding-top: 10px;
+    }
+    .ticket-labels{
+        width: 40%;
+    }
+    .ticket-data{
+        width: 60%;
+    }
+}
+/* ========================================= Styles for page of contacts============================================= */
+.contact-logo{
+    background-color: #36c3bb;
+}
+.contact-message-form h4{
+    font-weight: bold;
+    color: #f18930;
+}
+.contact-message-form label{
+    font-weight: bold;
+    color: #f18930;
+}
+.contact-message-form button{
+    background-color: #36c3bb;
+    color: white;
+}
+.contact-message-form button:hover{
+    background-color: #1d9b94;
+    color: white;
+}
+.contact-container{
+    background-color: #36c3bb;
+}
+.blank-space{
+    height: 40px;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+}
+/* ========================================= Styles for page of about us============================================= */
+.about-us-logo{
+    overflow: hidden;
+    margin: auto;
+}
+.about-us-logo img{
+    width:90%;
+    object-fit: cover;
+    object-position: center;
+}
+.bgBlue{
+    background-color: #36c3bb;
+}
