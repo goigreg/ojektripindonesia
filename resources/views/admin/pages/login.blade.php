@@ -28,14 +28,9 @@
                         <div class="mb-3 row">
                             <label for="email" class="col-sm-4 col-form-label login-admin-label">Email</label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control p-2 @error('email') is-invalid @enderror" id="email" 
-                                name="email" value="{{old ('email')}}" required autofocus>
+                                <input type="email" class="form-control p-2" id="email" 
+                                name="email" required autofocus>
                             </div>
-                            @error('email')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>
-                            @enderror
                         </div>
                         <div class="mb-3 row">
                             <label for="password" class="col-sm-4 col-form-label login-admin-label">Password</label>

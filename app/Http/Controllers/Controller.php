@@ -154,7 +154,6 @@ class Controller extends BaseController
     }
     public function loginProcess(Request $request)
     {
-        Session::flash('email', $request->email);
         $loginData = [
             'email'     => $request->email,
             'password'  => $request->password,
@@ -166,7 +165,7 @@ class Controller extends BaseController
                 return redirect()->intended('/admin/dashboard');
             }else{
                 Alert::toast('Incorrect email or password', 'error');
-                return back();
+                return redirect('/admin');
             }
     }
     public function logout()

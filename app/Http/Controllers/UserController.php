@@ -36,12 +36,12 @@ class UserController extends Controller
         $role = $auth->role;
         $authId = $auth->id;
 
-        return view('admin.pages.user',[
+        return view('admin.pages.user', [
             'name'      => 'User',
-            'title'     =>'User',
+            'title'     => 'User',
             'sideLogo'  => $sideLogo,
             'navLogoAdmin'          => $navlogoAdmin,
-            'dashNotif' => $dashNotif,            
+            'dashNotif' => $dashNotif,
             'messageNotif'  => $messageNotif,
             'data'      => $data,
             'role'      => $role,
@@ -63,14 +63,14 @@ class UserController extends Controller
         $sideLogo = companyprofile::where(['id' => 1])->get();
         $navlogoAdmin = companyprofile::where(['id' => 1])->get();
         $data = user::whereDate('created_at', '>=', $start_date)
-                        ->wheredate('created_at', '<=', $end_date)
-                        ->paginate(20);
-                        
+            ->wheredate('created_at', '<=', $end_date)
+            ->paginate(20);
+
         $auth = Auth::user();
         $role = $auth->role;
         $authId = $auth->id;
 
-        return view('admin.pages.user', compact('data', 'start_date', 'end_date'),[
+        return view('admin.pages.user', compact('data', 'start_date', 'end_date'), [
             'name'          => 'User',
             'sideLogo'      => $sideLogo,
             'navLogoAdmin'          => $navlogoAdmin,
@@ -84,30 +84,30 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        
+
         $nOrderCount = booking::where(['checked' => 1])->whereDate('created_at', date('Y-m-d'))->count();
         $nMemberCount = User::where(['role' => 'member', 'checked' => 1])->whereDate('created_at', date('Y-m-d'))->count();
         $nCustomTourCount = customTour::where(['checked' => 1])->whereDate('created_at', date('Y-m-d'))->count();
         $nTransactionCount = transactions::where(['checked' => 1, 'payment_method' => 'Via website'])->whereDate('created_at', date('Y-m-d'))->count();
         $dashNotif = $nOrderCount + $nMemberCount + $nCustomTourCount + $nTransactionCount;
         $messageNotif = message::where(['checked' => 1])->count();
-        
+
         $sideLogo = companyprofile::where(['id' => 1])->get();
         $navlogoAdmin = companyprofile::where(['id' => 1])->get();
-        $data = user::where(function($query) use ($search){
+        $data = user::where(function ($query) use ($search) {
 
-                    $query->where('user_code', 'like', "%$search%")
-                    ->orWhere('name', 'like', "%$search%")
-                    ->orWhere('nationality', 'like', "%$search%")
-                    ->orWhere('role', 'like', "%$search%");
-                })
-                ->paginate(20);
+            $query->where('user_code', 'like', "%$search%")
+                ->orWhere('name', 'like', "%$search%")
+                ->orWhere('nationality', 'like', "%$search%")
+                ->orWhere('role', 'like', "%$search%");
+        })
+            ->paginate(20);
 
         $auth = Auth::user();
         $role = $auth->role;
         $authId = $auth->id;
 
-        return view('admin.pages.user', compact('data', 'search'),[
+        return view('admin.pages.user', compact('data', 'search'), [
             'name'          => 'User',
             'title'         => 'User',
             'sideLogo'      => $sideLogo,
@@ -117,14 +117,13 @@ class UserController extends Controller
             'role'          => $role,
             'authId'        => $authId
         ]);
-
     }
     public function addUserModal()
     {
         $code = User::count();
-        $userCode = 'AOT'. date('ym') . $code + 1;
-        return view('admin.modal.addUserModal',[
-            'title'            =>'Add Admin',
+        $userCode = 'AOT' . date('ym') . $code + 1;
+        return view('admin.modal.addUserModal', [
+            'title'            => 'Add Admin',
             'user_code'        => $userCode,
         ]);
     }
@@ -143,7 +142,7 @@ class UserController extends Controller
         }
 
         $data = new user();
-        
+
         $data->user_code        = $request->userCode;
         $data->name             = $request->name;
         $data->email            = $request->email;
@@ -155,12 +154,12 @@ class UserController extends Controller
         $data->checked          = 1;
         $data->password         = bcrypt($request->password);
 
-        if($request->hasFile('profilephoto')){
+        if ($request->hasFile('profilephoto')) {
             $photo    = $request->file('profilephoto');
-            $filename = date('Ymd').'_'.$photo->getClientOriginalName();
-            $photo->move(public_path('storage/user'),$filename);
+            $filename = date('Ymd') . '_' . $photo->getClientOriginalName();
+            $photo->move(public_path('storage/user'), $filename);
             $data->profile_photo = $filename;
-        }else{
+        } else {
             $data->profile_photo = 'default.png';
         }
         $data->save();
@@ -174,18 +173,20 @@ class UserController extends Controller
             'checked'   => '0'
         ]);
 
-        return view('admin.modal.viewUserModal',
-        [
-            'title' => 'View User Data',
-            'data'  => $data,
-        ]
-    )->render();
+        return view(
+            'admin.modal.viewUserModal',
+            [
+                'title' => 'View User Data',
+                'data'  => $data,
+            ]
+        )->render();
     }
     public function edit($id)
     {
         $data = user::findOrFail($id);
 
-        return view('admin.modal.editUserModal',
+        return view(
+            'admin.modal.editUserModal',
             [
                 'title'     => 'Edit User Data',
                 'data'      => $data,
@@ -197,6 +198,7 @@ class UserController extends Controller
         $data = User::findOrFail($id);
         if ($request->email == $data->email) {
             $email = $data->email;
+            $emailverified = $data->email_verified_at;
         } else {
             $validator = Validator::make($request->all(), [
                 'email'                     => 'required|email:dns|unique:users',
@@ -206,14 +208,15 @@ class UserController extends Controller
                 return back();
             }
             $email = $request->email;
+            $emailverified = null;
         }
-    
-        if($request->file('profilephoto')){
+
+        if ($request->file('profilephoto')) {
             $photo = $request->file('profilephoto');
-            $filename = date('Ymd').'_'.$photo->getClientOriginalName();
+            $filename = date('Ymd') . '_' . $photo->getClientOriginalName();
             $photo->move(public_path('storage/user'), $filename);
             $data->profile_photo = $filename;
-        } else{
+        } else {
             $filename = $request->profilephoto;
         }
 
@@ -222,16 +225,18 @@ class UserController extends Controller
         } else {
             $password = bcrypt($request->password);
         }
-        
+
         $field = [
-            'user_code'      => $request->userCode,
-            'name'           => $request->name,
-            'email'          => $email,
-            'address'        => $request->address,
-            'phone'          => $request->phone,
-            'role'           => $request->role,
-            'profile_photo'  => $filename,
-            'password'       => $password
+            'user_code'             => $request->userCode,
+            'name'                  => $request->name,
+            'email'                 => $email,
+            'email_verified_at'     => $emailverified,
+            'address'               => $request->address,
+            'phone'                 => $request->phone,
+            'role'                  => $request->role,
+            'profile_photo'         => $filename,
+            'password'              => $password
+
         ];
 
         if ($request->email == $data->email) {
@@ -240,9 +245,18 @@ class UserController extends Controller
             return redirect('/admin/user');
         } else {
             $data::where('id', $id)->update($field);
-            Alert::toast('Data successfully changed, please verify the email!', 'success');
-            return redirect('/admin/user');
-        }        
+
+            if (Auth::user()->id == $data->id) {
+                Auth::logout();
+                request()->session()->invalidate();
+                request()->session()->regenerateToken();
+                Alert::toast('Please re-login!', 'warning');
+                return redirect('/admin');
+            } else {
+                Alert::toast('Data successfully changed', 'success');
+                return redirect('/admin/user');
+            }
+        }
     }
     public function destroy(user $user, $id)
     {

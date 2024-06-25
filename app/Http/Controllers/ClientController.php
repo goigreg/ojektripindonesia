@@ -671,17 +671,18 @@ class ClientController extends Controller
             'newPassword'              => 'min:6',
             'newPasswordConfirmation'  => 'required_with:newPassword|same:newPassword' 
         ]);
-        if ($validator->fails()) {
-            Alert::toast('Failed, passwords are not matched', 'error');
-            return redirect('/profile');
-        }
         $field = [
             'password'  => bcrypt($request->newPassword)
         ];
         if(Hash::check($request->currentPassword, $data->password)){
-            $data::where('id', $id)->update($field);
-            Alert::toast('Password updated', 'success');
-            return redirect('/profile');            
+            if ($validator->fails()) {
+                Alert::toast('Failed, passwords are not matched', 'error');
+                return redirect('/profile');
+            }else{
+                $data::where('id', $id)->update($field);
+                Alert::toast('Password updated', 'success');
+                return redirect('/profile');         
+            }
         }else{
             Alert::toast('Failed, password is incorrect', 'error');
             return redirect('/profile');
