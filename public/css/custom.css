@@ -1121,6 +1121,14 @@ footer{
     background-color: transparent;
 }
 @media(max-width: 767px){
+    .profile-text{
+        position: relative;
+    }
+    .profile-btn-setting{
+        position: absolute;
+        top: -2px;
+        left: 5px;
+    }
     .auth-name{
         text-align: center;
         margin-bottom: 20px;

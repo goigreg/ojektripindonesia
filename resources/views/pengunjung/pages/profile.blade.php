@@ -19,14 +19,14 @@
             </div>
         </div>
         <div class="col-md-8">
-            <div class="row col-md-12 mt-4">
+            <div class="row col-md-12 mt-4 profile-text">
                 <div class="col-md-8 auth-name">
                     <h1>{{Auth::user()->name}}</h1>
                 </div>
                 <div class="col-md-4 align-content-center">
                     <button class="btn d-flex btn-edit"><span class="material-icons">edit</span>Edit Profile</button>
                 </div>
-                <div class="dropdown">
+                <div class="dropdown profile-btn-setting">
                     <button class="btn dropdown-toggle btn-setting" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-gear fs-5"></i>
                     </button>
