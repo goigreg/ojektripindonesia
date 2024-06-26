@@ -33,13 +33,10 @@ Route::group(['middleware' => 'revalidate'], function(){
     Route::get('/rentals', [Controller::class, 'rentals'])->name('rentals')->middleware('auth');
     Route::get('/about_us', [Controller::class, 'about_us'])->name('about Us');
     
-    
-    Route::get('/purchase', [Controller::class, 'purchase'])->name('purchase');
-    Route::POST('/purchase/process/{id}', [Controller::class, 'purchaseProcess'])->name('purchase.product');
-    Route::get('/memberLogout', [ClientController::class, 'memberLogout'])->name('memberLogout');
-    
     Route::middleware(['middleware' => 'guest'])->group(function () {
         Route::get('/admin', [Controller::class, 'adminLogin'])->name('adminLogin');
+        Route::POST('/admin/loginProcess', [Controller::class, 'loginProcess'])->name('loginProcess');
+        
         Route::get('/registerForm', [ClientController::class, 'registerFormShow'])->name('registerForm');
         Route::POST('/memberRegister', [ClientController::class, 'store'])->name('memberRegister');
         Route::get('/loginForm', [ClientController::class, 'loginFormShow'])->name('loginForm');
@@ -47,6 +44,7 @@ Route::group(['middleware' => 'revalidate'], function(){
     });
     
     Route::middleware(['middleware' => 'member', 'verified'])->group(function () {
+        Route::get('/memberLogout', [ClientController::class, 'memberLogout'])->name('memberLogout');
         Route::POST('/bookings/{id}', [ClientController::class, 'bookings'])->name('bookings');
         Route::get('/checkOut', [ClientController::class, 'checkOut'])->name('checkOut');
         Route::get('/checkOut/viewBookData/{id}', [ClientController::class, 'viewBookData'])->name('viewBookData');
@@ -76,11 +74,8 @@ Route::group(['middleware' => 'revalidate'], function(){
         // Route::get('/cobaMidtrans', [midtransController::class, 'cobaMidtrans'])->name('cobaMidtrans');
     });    
     
-        
-    Route::POST('/admin/loginProcess', [Controller::class, 'loginProcess'])->name('loginProcess');
-    Route::get('/admin/logout', [Controller::class, 'logout'])->name('adminLogout');
-    
-    Route::middleware(['middleware' => 'admin', 'verified'])->group(function () {    
+    Route::middleware(['middleware' => 'admin', 'verified'])->group(function () {
+        Route::get('/admin/logout', [Controller::class, 'logout'])->name('adminLogout');
         Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin');
         Route::get('/admin/order', [adminController::class, 'order'])->name('order');
         Route::get('/admin/order/filter', [adminController::class, 'filter'])->name('orderFilter');

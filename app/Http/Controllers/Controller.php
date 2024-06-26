@@ -34,8 +34,8 @@ class Controller extends BaseController
         $package = product::where('category', '=', 3)->get();
 
         $navLogo = companyprofile::where(['id' => 1])->get();
-        $footerInfo = companyprofile::where(['id' => 1])->get();        
-        $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();  
+        $footerInfo = companyprofile::where(['id' => 1])->get();
+        $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();
         return view('pengunjung.pages.tours', [
             'title'             => 'Tours',
             'data'              => $data,
@@ -44,24 +44,24 @@ class Controller extends BaseController
             'package'           => $package,
             'navLogo'           => $navLogo,
             'footerInfo'        => $footerInfo,
-            'count'             => $countcart,            
+            'count'             => $countcart,
         ]);
     }
     public function searchTours(Request $request)
     {
         $search = $request->search;
-        
-        $data = product::where(function($query) use ($search){
 
-                    $query->where('package_name', 'like', "%$search%");
-                })->get();
+        $data = product::where(function ($query) use ($search) {
+
+            $query->where('package_name', 'like', "%$search%");
+        })->get();
 
         $daytour = product::where('category', '=', 1000)->get();
         $funActivity = product::where('category', '=', 1000)->get();
         $package = product::where('category', '=', 1000)->get();
 
         $navLogo = companyprofile::where(['id' => 1])->get();
-        $footerInfo = companyprofile::where(['id' => 1])->get();        
+        $footerInfo = companyprofile::where(['id' => 1])->get();
         $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();
         return view('pengunjung.pages.tours', [
             'title'             => 'Tours',
@@ -72,7 +72,7 @@ class Controller extends BaseController
             'package'           => $package,
             'navLogo'           => $navLogo,
             'footerInfo'        => $footerInfo,
-            'count'             => $countcart,            
+            'count'             => $countcart,
         ]);
     }
     public function tourDetails($id)
@@ -88,22 +88,10 @@ class Controller extends BaseController
             'count'         => $countcart,
         ]);
     }
-    public function rentals()
-    {
-        $navLogo = companyprofile::where(['id' => 1])->get();
-        $footerInfo = companyprofile::where(['id' => 1])->get();        
-        $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();
-        return view('pengunjung.pages.rentals', [
-            'title'     => 'Rentals',
-            'navLogo'   => $navLogo,
-            'footerInfo'        => $footerInfo,
-            'count'     => $countcart,            
-        ]);
-    }
     public function about_us()
     {
         $navLogo = companyprofile::where(['id' => 1])->get();
-        $footerInfo = companyprofile::where(['id' => 1])->get();        
+        $footerInfo = companyprofile::where(['id' => 1])->get();
         $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();
 
         $data = companyprofile::where(['id' => 1])->get();
@@ -111,39 +99,9 @@ class Controller extends BaseController
             'title'     => 'About Us',
             'navLogo'   => $navLogo,
             'footerInfo'        => $footerInfo,
-            'count'     => $countcart,            
-            'data'      => $data,            
+            'count'     => $countcart,
+            'data'      => $data,
         ]);
-    }    
-    public function purchase()
-    {
-        return view('pengunjung.pages.purchase', [
-            'title'      => 'Purchase',
-        ]);
-    }
-    public function purchaseProcess(Request $request, $id)
-    {
-        $data = $request->all();
-        $code = transactions::count();
-        $transactionCode = date('Ymd') . $code + 1;
-
-        $transactionDetails = new transactionDetails();
-        $detailField = [
-            'transaction_id'  => $transactionCode,
-            'package_id'      => $data['packageId'],
-            'quantity'        => $data['quantity'],
-            'price'           => $data['totalprice'],
-        ];
-        $transactionDetails::create($detailField);
-        
-        $cartfield = [
-            'quantity'        => $data['quantity'],
-            'package_price'   => $data['totalprice'],
-            'status'          =>1,
-        ];
-        cartproduct::where('id', $id)->update($cartfield);
-        Alert::toast('Checkout successfull', 'success');
-        return redirect('/book');
     }
     public function adminLogin()
     {
@@ -159,20 +117,20 @@ class Controller extends BaseController
             'password'  => $request->password,
         ];
 
-            if(Auth::attempt($loginData)){
-                if (Auth::user()->is_admin == 1) {
-                    Alert::toast('Wellcome', 'success');
-                    $request->session()->regenerate();
-                    return redirect()->intended('/admin/dashboard');
-                } else {
-                    Alert::toast('You are not admin', 'warning');
-                    $request->session()->regenerate();
-                    return redirect()->intended('/');
-                }
-            }else{
-                Alert::toast('Incorrect email or password', 'error');
-                return redirect('/admin');
+        if (Auth::attempt($loginData)) {
+            if (Auth::user()->is_admin == 1) {
+                Alert::toast('Wellcome', 'success');
+                $request->session()->regenerate();
+                return redirect()->intended('/admin/dashboard');
+            } else {
+                Alert::toast('You are not admin', 'warning');
+                $request->session()->regenerate();
+                return redirect()->intended('/profile');
             }
+        } else {
+            Alert::toast('Incorrect email or password', 'error');
+            return redirect('/admin');
+        }
     }
     public function logout()
     {
