@@ -160,9 +160,15 @@ class Controller extends BaseController
         ];
 
             if(Auth::attempt($loginData)){
-                Alert::toast('Wellcome', 'success');
-                $request->session()->regenerate();
-                return redirect()->intended('/admin/dashboard');
+                if (Auth::user()->is_admin == 1) {
+                    Alert::toast('Wellcome', 'success');
+                    $request->session()->regenerate();
+                    return redirect()->intended('/admin/dashboard');
+                } else {
+                    Alert::toast('You are not admin', 'warning');
+                    $request->session()->regenerate();
+                    return redirect()->intended('/');
+                }
             }else{
                 Alert::toast('Incorrect email or password', 'error');
                 return redirect('/admin');
