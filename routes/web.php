@@ -42,9 +42,10 @@ Route::group(['middleware' => 'revalidate'], function(){
         Route::get('/loginForm', [ClientController::class, 'loginFormShow'])->name('loginForm');
         Route::POST('/memberLogin', [ClientController::class, 'memberLogin'])->name('memberLogin');
     });
+
+    Route::get('/memberLogout', [ClientController::class, 'memberLogout'])->name('memberLogout');
     
     Route::middleware(['middleware' => 'member', 'verified'])->group(function () {
-        Route::get('/memberLogout', [ClientController::class, 'memberLogout'])->name('memberLogout');
         Route::POST('/bookings/{id}', [ClientController::class, 'bookings'])->name('bookings');
         Route::get('/checkOut', [ClientController::class, 'checkOut'])->name('checkOut');
         Route::get('/checkOut/viewBookData/{id}', [ClientController::class, 'viewBookData'])->name('viewBookData');
@@ -74,8 +75,9 @@ Route::group(['middleware' => 'revalidate'], function(){
         // Route::get('/cobaMidtrans', [midtransController::class, 'cobaMidtrans'])->name('cobaMidtrans');
     });    
     
+    Route::get('/admin/logout', [Controller::class, 'logout'])->name('adminLogout');
+    
     Route::middleware(['middleware' => 'admin', 'verified'])->group(function () {
-        Route::get('/admin/logout', [Controller::class, 'logout'])->name('adminLogout');
         Route::get('/admin/dashboard', [adminController::class, 'index'])->name('admin');
         Route::get('/admin/order', [adminController::class, 'order'])->name('order');
         Route::get('/admin/order/filter', [adminController::class, 'filter'])->name('orderFilter');
