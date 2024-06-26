@@ -39,9 +39,15 @@
                             <button type="button" class="register-button" id="registerModal">Register</button>
                         </li>
                     @endauth
-                    <li class="nav-item">
-                        <a class="nav-link user-nav mx-lg-2 {{Request::path() == '/' ? 'active' : '';}}" aria-current="page" href="/">Home</a>
-                    </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link user-nav mx-lg-2 {{Request::path() == '/home' ? 'active' : '';}}" aria-current="page" href="/home">Home</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link user-nav mx-lg-2 {{Request::path() == '/' ? 'active' : '';}}" aria-current="page" href="/">Home</a>
+                        </li>
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link user-nav mx-lg-2 {{Request::path() == 'tours' ? 'active' : '';}}" href="/tours">Tours</a>
                     </li>            

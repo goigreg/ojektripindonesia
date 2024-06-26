@@ -22,14 +22,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['middleware' => 'revalidate'], function(){
-    Route::get('/', [ClientController::class, 'index'])->name('home');
     Route::get('/details/{id}', [ClientController::class, 'details'])->name('details');
     Route::get('/contacts', [ClientController::class, 'contacts'])->name('contacts');
     Route::POST('/contacts/sendMessage', [ClientController::class, 'sendMessage'])->name('sendMessage');
-    Route::get('/registerForm', [ClientController::class, 'registerFormShow'])->name('registerForm');
-    Route::POST('/memberRegister', [ClientController::class, 'store'])->name('memberRegister');
-    Route::get('/loginForm', [ClientController::class, 'loginFormShow'])->name('loginForm');
-    Route::POST('/memberLogin', [ClientController::class, 'memberLogin'])->name('memberLogin');
     
     Route::get('/tours', [Controller::class, 'tours'])->name('tours');
     Route::get('/tours/search', [UserController::class, 'searchTours'])->name('searchTours');
@@ -42,7 +37,17 @@ Route::group(['middleware' => 'revalidate'], function(){
     Route::POST('/purchase/process/{id}', [Controller::class, 'purchaseProcess'])->name('purchase.product');
     Route::get('/memberLogout', [ClientController::class, 'memberLogout'])->name('memberLogout');
     
+    Route::middleware(['middleware' => 'guest'])->group(function () {
+        Route::get('/', [ClientController::class, 'index'])->name('home');
+        Route::get('/admin', [Controller::class, 'adminLogin'])->name('adminLogin');
+        Route::get('/registerForm', [ClientController::class, 'registerFormShow'])->name('registerForm');
+        Route::POST('/memberRegister', [ClientController::class, 'store'])->name('memberRegister');
+        Route::get('/loginForm', [ClientController::class, 'loginFormShow'])->name('loginForm');
+        Route::POST('/memberLogin', [ClientController::class, 'memberLogin'])->name('memberLogin');
+    });
+    
     Route::middleware(['middleware' => 'member', 'verified'])->group(function () {    
+        Route::get('/home', [ClientController::class, 'home'])->name('homeDashboard');
         Route::POST('/bookings/{id}', [ClientController::class, 'bookings'])->name('bookings');
         Route::get('/checkOut', [ClientController::class, 'checkOut'])->name('checkOut');
         Route::get('/checkOut/viewBookData/{id}', [ClientController::class, 'viewBookData'])->name('viewBookData');
@@ -72,9 +77,6 @@ Route::group(['middleware' => 'revalidate'], function(){
         // Route::get('/cobaMidtrans', [midtransController::class, 'cobaMidtrans'])->name('cobaMidtrans');
     });    
     
-    Route::middleware(['middleware' => 'guest'])->group(function () {
-        Route::get('/admin', [Controller::class, 'adminLogin'])->name('adminLogin');
-    });
         
     Route::POST('/admin/loginProcess', [Controller::class, 'loginProcess'])->name('loginProcess');
     Route::get('/admin/logout', [Controller::class, 'logout'])->name('adminLogout');
