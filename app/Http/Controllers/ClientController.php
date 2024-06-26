@@ -547,6 +547,46 @@ class ClientController extends Controller
     }
     public function store(StoreuserRequest $request)
     {
+        // name validator
+        $nameValidator = Validator::make($request->all(), [
+            'name'                      => ['required', 'min:3', 'max:255']
+        ]);
+        if ($nameValidator->fails()) {
+            Alert::toast('Failed, name must be at least 3 characters!', 'error');
+            return back();
+        }
+        // emailUnique validator
+        $emailUniqueValidator = Validator::make($request->all(), [
+            'email'                     => 'unique:users'
+        ]);
+        if ($emailUniqueValidator->fails()) {
+            Alert::toast('Failed, email already existed', 'error');
+            return back();
+        }
+        // phone validator
+        $phoneValidator = Validator::make($request->all(), [
+            'phone'                     => 'min:5'
+        ]);
+        if ($phoneValidator->fails()) {
+            Alert::toast('Failed, phone number is invalid', 'error');
+            return back();
+        }
+        // password validator
+        $passwordValidator = Validator::make($request->all(), [
+            'password'                  => 'min:6'
+        ]);
+        if ($passwordValidator->fails()) {
+            Alert::toast('Failed, password must be at least 6 characters!', 'error');
+            return back();
+        }
+        // passwordConfirm validator
+        $passwordConfirmValidator = Validator::make($request->all(), [
+            'passwordConfirmation'      => 'required_with:password|same:password|min:6'
+        ]);
+        if ($passwordConfirmValidator->fails()) {
+            Alert::toast('Failed, passwords are not matched', 'error');
+            return back();
+        }
         $validator = Validator::make($request->all(), [
             'name'                      => ['required', 'min:3', 'max:255'],
             'email'                     => 'required|email:dns|unique:users',
@@ -579,18 +619,12 @@ class ClientController extends Controller
             'email'         => 'required|email:dns',
             'password'      => 'required'
         ]);
-
-            if(Auth::attempt($loginData)){
-                Alert::toast('Welcome', 'success');
-                $request->session()->regenerate();
-                return redirect('/profile');
-            }
-            // else{
-            //     Alert::toast('Incorrect email or password', 'error');
-            //     return back();                
-            // }
-        // Alert::toast('Registered successfully, check your email for verification!', 'success');
-        // return redirect('/');
+        
+        if(Auth::attempt($loginData)){
+            Alert::toast('Welcome', 'success');
+            $request->session()->regenerate();
+            return redirect('/profile');
+        }
     }
     public function loginFormShow()
     {

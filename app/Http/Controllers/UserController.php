@@ -129,15 +129,12 @@ class UserController extends Controller
     }
     public function store(StoreuserRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name'                      => ['required', 'min:3', 'max:255'],
-            'email'                     => 'required|email:dns|unique:users',
-            'phone'                     => 'required',
-            'password'                  => 'min:6',
-            'passwordConfirm'      => 'required_with:password|same:password|min:6',
+        // emailUnique validator
+        $emailUniqueValidator = Validator::make($request->all(), [
+            'email'                     => 'unique:users'
         ]);
-        if ($validator->fails()) {
-            Alert::toast('Failed, some informations are invalid', 'error');
+        if ($emailUniqueValidator->fails()) {
+            Alert::toast('Failed, email already existed', 'error');
             return back();
         }
 

@@ -16,10 +16,10 @@ class adminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->check() && auth()->user()->is_admin){            
+        if (auth()->check() && auth()->user()->is_admin) {
             return $next($request);
         }
         Alert::toast('You are not admin!', 'error');
-        return redirect('/admin');
+        return back();
     }
 }
