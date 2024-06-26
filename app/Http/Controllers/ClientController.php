@@ -490,7 +490,7 @@ class ClientController extends Controller
 
         return view('pengunjung.pages.e-ticket', compact('logo', 'address', 'email', 'phone', 'bookDate',
          'numberOfPeople', 'adultPrice', 'childPrice', 'priceTotal', 'paymentTotal'), [
-            'title'         => 'e-ticket',
+            'title'         => 'E-ticket',
             'ticket'        => $ticket,
             'companyInfo'   => $companyinfo
         ]);

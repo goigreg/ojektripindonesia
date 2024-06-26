@@ -1208,6 +1208,7 @@ footer{
 .ticket-header{
     display: flex;
     justify-content: space-between;
+    background-color: #f18930;
 }
 .ticket-left-header{
     width: 50%;
@@ -1216,6 +1217,7 @@ footer{
 }
 .ticket-right-header{
     width: 50%;
+    color: white;
 }
 .ticket-logo{
     margin-left: 20px;

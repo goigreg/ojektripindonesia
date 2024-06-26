@@ -16,6 +16,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <title>Ojek Trip Indonesia I {{$title}}</title>
+    <link rel="icon" href="{{asset('storage/company/Logogram.jpg')}}">
 </head>
 <body>
     <main>
