@@ -59,31 +59,6 @@ class ClientController extends Controller
             'count'             => $countcart,
         ]);
     }
-    public function home()
-    {
-        $daytour = product::where('category', '=', 1)->paginate(3);
-        $funActivity = product::where('category', '=', 2)->paginate(3);
-        $package = product::where('category', '=', 3)->paginate(3);
-        $countDaytour = product::where('category', '=', 1)->count();
-        $countFunActivity = product::where('category', '=', 2)->count();
-        $countPackage = product::where('category', '=', 3)->count();
-
-        $navLogo = companyprofile::where(['id' => 1])->get();
-        $footerInfo = companyprofile::where(['id' => 1])->get();
-        $countcart = booking::where(['user_id' => Auth::id(), 'payment_status' => 1])->count();
-        return view('pengunjung.pages.home', [
-            'title'             => 'Home',
-            'daytour'           => $daytour,
-            'funActivity'       => $funActivity,
-            'package'           => $package,
-            'countDaytour'      => $countDaytour,
-            'countFunActivity'  => $countFunActivity,
-            'countPackage'      => $countPackage,
-            'navLogo'           => $navLogo,
-            'footerInfo'        => $footerInfo,
-            'count'             => $countcart,
-        ]);
-    }
     public function details($id)
     {       
         $navLogo = companyprofile::where(['id' => 1])->get();
