@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col-md-12 d-flex flex-wrap justify-content-around">
-        <div class="position-relative" id="new-order" onclick="nOrder(0)">
+        <div class="position-relative dashboard-btn-container" id="new-order" onclick="nOrder(0)">
             <div class="card card-btn bg-primary">
                 <div class="card-body m-auto py-3">
                     <div class="d-flex gap-3 align-items-center">
@@ -11,7 +11,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card-footer text-center py-1 bg-dark">
+                <div class="card-footer dashboard-btn-footer text-center py-1 bg-dark">
                     <h5 class="mb-0 text-white">New Order</h5>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="dash-circle">{{$nOrderCount}}</div>
             @endif
         </div>                                 
-        <div class="position-relative" id="new-member" onclick="nMember(0)">
+        <div class="position-relative dashboard-btn-container" id="new-member" onclick="nMember(0)">
             <div class="card card-btn bg-success">
                 <div class="card-body m-auto py-3">
                     <div class="d-flex gap-3 align-items-center">
@@ -30,7 +30,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card-footer text-center py-1 bg-dark">
+                <div class="card-footer dashboard-btn-footer text-center py-1 bg-dark">
                     <h5 class="mb-0 text-white">New Member</h5>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <div class="dash-circle bg-warning">{{$nMemberCount}}</div>
             @endif
         </div>                                 
-        <div class="position-relative" id="new-transaction" onclick="nTransaction(0)">
+        <div class="position-relative dashboard-btn-container" id="new-transaction" onclick="nTransaction(0)">
             <div class="card card-btn bg-warning">
                 <div class="card-body m-auto py-3">
                     <div class="d-flex gap-3 align-items-center">
@@ -49,7 +49,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card-footer text-center py-1 bg-dark">
+                <div class="card-footer dashboard-btn-footer text-center py-1 bg-dark">
                     <h5 class="mb-0 text-white">New Transaction</h5>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <div class="dash-circle bg-success">{{$nTransactionCount}}</div>
             @endif
         </div>
-        <div class="position-relative" id="new-custom" onclick="nCustom(0)">
+        <div class="position-relative dashboard-btn-container" id="new-custom" onclick="nCustom(0)">
             <div class="card card-btn bg-danger">
                 <div class="card-body m-auto py-3">
                     <div class="d-flex gap-3 align-items-center">
@@ -68,7 +68,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="card-footer text-center py-1 bg-dark">
+                <div class="card-footer dashboard-btn-footer text-center py-1 bg-dark">
                     <h5 class="mb-0 text-white">New Request</h5>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     {{------------------------------------ card for data -----------------------------------}}
         <div class="card col-md-12 mt-4 card-new-order" id="card-new-order" style="display: none">
             <div class="card-header d-flex justify-content-between bg-primary text-white">
-                <div class="title">
+                <div class="title dashboard-table-title">
                     <h3>New Order</h3>
                 </div>
                 <div class="title">
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-striped">
+                <table class="table table-responsive dashboard-table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
@@ -97,8 +97,8 @@
                             <th class="text-center">Date</th>
                             <th class="text-center">Package</th>
                             <th class="text-center">Name</th>
-                            <th class="text-center">People</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center dashboard-hide">People</th>
+                            <th class="text-center dashboard-hide">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -115,15 +115,15 @@
                                 <td class="text-center">{{$x->departure_date}}</td>
                                 <td class="text-center">{{$x->package_name}}</td>
                                 <td class="text-center">{{$x->name}}</td>
-                                <td class="text-center">
+                                <td class="text-center dashboard-hide">
                                     {{$x->number_of_adult}}/{{$x->number_of_child}}/{{$x->number_of_infant}}
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center dashboard-hide">
                                     <span class="px-1 text-bg-{{$x->payment_status === 0 ? 'success' : ''}}">{{$x->payment_status === 0 ? 'Paid' : 'Not Paid'}}</span>                                
                                 </td>                                
                                 <td class="text-center">
                                     <button class="btn btn-info px-2 pb-0 viewOrderModal" data-id="{{$x->id}}" onclick="newOrder(0)">
-                                        <span class="material-icons">
+                                        <span class="material-icons dashboard-view-btn">
                                             visibility
                                         </span>
                                     </button>
@@ -138,7 +138,7 @@
 
         <div class="card col-md-12 mt-4 card-new-member" id="card-new-member" style="display: none">
             <div class="card-header d-flex justify-content-between bg-success text-white">
-                <div class="title">
+                <div class="title dashboard-table-title">
                     <h3>New Member</h3>
                 </div>
                 <div class="title">
@@ -146,15 +146,15 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-striped">
+                <table class="table table-responsive dashboard-table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Photo</th>
                             <th class="text-center">User Code</th>
                             <th class="text-center">Name</th>
-                            <th class="text-center">Phone</th>
-                            <th class="text-center">Join Date</th>
+                            <th class="text-center dashboard-hide">Phone</th>
+                            <th class="text-center dashboard-hide">Join Date</th>
                             <th class="text-center">Role</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -169,14 +169,14 @@
                             <tr class="align-middle bg-{{$x->checked === 1 ? 'success' : ''}}">
                                 <td class="text-center">{{++$y}}</td>
                                 <td class="text-center">
-                                    <div class="photo-prev">
+                                    <div class="dashboard-photo-prev">
                                         <img src="{{asset('storage/user/'.$x->profile_photo)}}" alt="">
                                     </div>
                                 </td>
                                 <td class="text-center">{{$x->user_code}}</td>
                                 <td class="text-center">{{$x->name}}</td>
-                                <td class="text-center">{{$x->phone}}</td>
-                                <td class="text-center">{{$x->created_at->format('Y-m-d')}}</td>
+                                <td class="text-center dashboard-hide">{{$x->phone}}</td>
+                                <td class="text-center dashboard-hide">{{$x->created_at->format('Y-m-d')}}</td>
                                 @if ($x->role === 'member')
                                 <td class="text-center">
                                     <span>Member</span>
@@ -188,7 +188,7 @@
                                 @endif    
                                 <td class="text-center">
                                     <button class="btn btn-info px-2 pb-0 viewUserModal" data-id="{{$x->id}}">
-                                        <span class="material-icons">
+                                        <span class="material-icons dashboard-view-btn">
                                             visibility
                                         </span>
                                     </button>
@@ -203,7 +203,7 @@
 
         <div class="card col-md-12 mt-4 card-new-transaction" id="card-new-transaction" style="display: none">
             <div class="card-header d-flex justify-content-between bg-warning text-white">
-                <div class="title">
+                <div class="title dashboard-table-title">
                     <h3>New Transaction</h3>
                 </div>
                 <div class="title">
@@ -211,15 +211,15 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-striped">
+                <table class="table table-responsive dashboard-table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Date</th>
                             <th class="text-center">Code</th>
                             <th class="text-center">Name</th>
-                            <th class="text-center">Total Payment</th>
-                            <th class="text-center">Payment Method</th>
+                            <th class="text-center dashboard-hide">Total Payment</th>
+                            <th class="text-center dashboard-hide">Payment Method</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -235,11 +235,11 @@
                                 <td class="text-center">{{$x->created_at->format('Y-m-d')}}</td>
                                 <td class="text-center">{{$x->transaction_code}}</td>
                                 <td class="text-center">{{$x->name}}</td>
-                                <td class="text-center">{{number_format($x->payment_total)}}</td>
-                                <td class="text-center">{{$x->payment_method}}</td>
+                                <td class="text-center dashboard-hide">{{number_format($x->payment_total)}}</td>
+                                <td class="text-center dashboard-hide">{{$x->payment_method}}</td>
                                 <td class="text-center">
                                     <button class="btn btn-info px-2 pb-0 viewTransactionModal" data-id="{{$x->id}}">
-                                        <span class="material-icons">
+                                        <span class="material-icons dashboard-view-btn">
                                             visibility
                                         </span>
                                     </button>                                
@@ -254,7 +254,7 @@
 
         <div class="card col-md-12 mt-4 card-new-custom" id="card-new-custom" style="display: none">
             <div class="card-header d-flex justify-content-between bg-danger text-white">
-                <div class="title">
+                <div class="title dashboard-table-title">
                     <h3>New Custom Tour Request</h3>
                 </div>
                 <div class="title">
@@ -262,11 +262,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-responsive table-striped">
+                <table class="table table-responsive dashboard-table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">No</th>
-                            <th class="text-center">Email</th>
+                            <th class="text-center dashboard-hide">Email</th>
                             <th class="text-center">Subject</th>
                             <th class="text-center">Request</th>
                             <th class="text-center">Action</th>
@@ -281,12 +281,12 @@
                             @foreach ($nCustom as $y => $x)
                             <tr class="align-middle bg-{{$x->checked === 1 ? 'warning' : ''}}">
                                 <td class="text-center" style="vertical-align: top">{{++$y}}</td>
-                                <td class="text-center" style="vertical-align: top">{{$x->user_email}}</td>
+                                <td class="text-center dashboard-hide" style="vertical-align: top">{{$x->user_email}}</td>
                                 <td class="text-center" style="vertical-align: top">{{$x->subject}}</td>
                                 <td class="overflow-hidden" style="height: 20px">{!! $x->description !!}</td>
                                 <td class="text-center" style="vertical-align: top">
                                     <button type="button" class="btn btn-info px-2 pb-0 viewCustom" data-id="{{$x->id}}">
-                                        <span class="material-icons">
+                                        <span class="material-icons dashboard-view-btn">
                                             visibility
                                         </span>
                                     </button>
