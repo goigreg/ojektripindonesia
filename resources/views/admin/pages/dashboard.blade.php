@@ -79,7 +79,7 @@
             @endif
         </div>
     {{------------------------------------ card for data -----------------------------------}}
-        <div class="card col-md-12 mt-4 card-new-order" id="card-new-order" style="display: none">
+        <div class="card dashboard-data-card col-md-12 mt-4 card-new-order" id="card-new-order" style="display: none">
             <div class="card-header d-flex justify-content-between bg-primary text-white">
                 <div class="title dashboard-table-title">
                     <h3>New Order</h3>
@@ -136,7 +136,7 @@
             </div>
         </div>
 
-        <div class="card col-md-12 mt-4 card-new-member" id="card-new-member" style="display: none">
+        <div class="card dashboard-data-card col-md-12 mt-4 card-new-member" id="card-new-member" style="display: none">
             <div class="card-header d-flex justify-content-between bg-success text-white">
                 <div class="title dashboard-table-title">
                     <h3>New Member</h3>
@@ -201,7 +201,7 @@
             </div>
         </div>
 
-        <div class="card col-md-12 mt-4 card-new-transaction" id="card-new-transaction" style="display: none">
+        <div class="card dashboard-data-card col-md-12 mt-4 card-new-transaction" id="card-new-transaction" style="display: none">
             <div class="card-header d-flex justify-content-between bg-warning text-white">
                 <div class="title dashboard-table-title">
                     <h3>New Transaction</h3>
@@ -252,7 +252,7 @@
             </div>
         </div>
 
-        <div class="card col-md-12 mt-4 card-new-custom" id="card-new-custom" style="display: none">
+        <div class="card dashboard-data-card col-md-12 mt-4 card-new-custom" id="card-new-custom" style="display: none">
             <div class="card-header d-flex justify-content-between bg-danger text-white">
                 <div class="title dashboard-table-title">
                     <h3>New Custom Tour Request</h3>
