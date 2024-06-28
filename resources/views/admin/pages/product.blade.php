@@ -1,8 +1,8 @@
 @extends('admin.layout.index')
 
 @section('content')
-<div class="card mb-1">
-    <div class="card-body d-flex flex-row justify-content-between">
+<div class="card product-card mb-1">
+    <div class="card-body filter-search-bar">
         <form action="/admin/product/filter" method="GET">
             <div class="filter d-flex flex-lg-row gap-3">
                 <input type="date" class="form-control" name="startDate" value="{{ isset($start_date) ? $start_date : ''}}" required>
@@ -20,7 +20,7 @@
         </form>
     </div>
 </div>
-    <div class="card rounded-full">
+    <div class="card product-card rounded-full">
         <div class="card-header bg-transparent">            
             <button type="button" class="btn btn-info" id="addData">
                 <i class="fas fa-plus">

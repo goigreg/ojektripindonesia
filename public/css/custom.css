@@ -241,6 +241,14 @@ hr.h-color{
         font-size: 9px;
     }
 }
+/*=================================================Style for Product page =============================================*/
+.product-card{
+    min-width: 1014px;
+}
+.filter-search-bar{
+    display: flex;
+    justify-content: space-between;
+}
 /*=================================================Style for Add Package Modal =============================================*/
 .photo1Preview{
     width: 200px;
