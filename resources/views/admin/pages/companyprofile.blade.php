@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-<div class="card mb-4">
+<div class="card company-profile-card mb-4">
     @foreach ($data as $x)
         <form action="{{route('updateCompanyProfile', $x->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')

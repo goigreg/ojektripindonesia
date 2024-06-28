@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-    <div class="card mb-1">
+    <div class="card user-card mb-1">
         <div class="card-body d-flex flex-row justify-content-between">
             <form action="/admin/user/filter" method="GET">
                 <div class="filter d-flex flex-lg-row gap-3">
@@ -20,7 +20,7 @@
             </form>
         </div>
     </div>
-    <div class="card rounded-full">
+    <div class="card user-card rounded-full">
         <div class="card-header bg-transparent {{$role === 'manager' ? '' : 'collapse'}}">            
             <button class="btn btn-info" id="addData">
                 <i class="fas fa-plus">

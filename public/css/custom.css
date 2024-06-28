@@ -272,6 +272,9 @@ hr.h-color{
     margin-bottom: 5px;
 }
 /*=================================================Style for user in admin pages =============================================*/
+.user-card{
+    min-width: 1014px;
+}
 .photo-prev{
     width: 50px;
     height: 50px;
@@ -289,9 +292,29 @@ hr.h-color{
     object-fit: cover;
     object-position: center;
 }
+/*=================================================Style for the page of admin order =============================================*/
+.order-card{
+    min-width: 1014px;
+}
+/*=================================================Style for the page of admin transaction =============================================*/
+.transaction-card{
+    min-width: 1014px;
+}
+/*=================================================Style for the page of admin Custom tour =============================================*/
+.custom-tour-card{
+    min-width: 1014px;
+}
+/*=================================================Style for the page of admin Message =============================================*/
+.message-card{
+    min-width: 1014px;
+}
 /*=================================================Style for company profile =============================================*/
+.company-profile-card{
+    min-width: 1014px;
+}
 .c-profile-card{
     display: flex;
+    justify-content: space-between;
 }
 .primary-logo-img{ 
     position: relative;

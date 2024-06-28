@@ -1,7 +1,7 @@
 @extends('admin.layout.index')
 
 @section('content')
-<div class="card mb-1">
+<div class="card order-card mb-1">
     <div class="card-body d-flex flex-row justify-content-between">
         <form action="/admin/order/filter" method="GET">
             <div class="filter d-flex flex-lg-row gap-3">
@@ -20,7 +20,7 @@
         </form>
     </div>
 </div>
-    <div class="card rounded-full">
+    <div class="card order-card rounded-full">
         <div class="card-body">
             <table class="table table-responsive table-striped">
                 <thead>
