@@ -23,7 +23,7 @@ class adminMiddleware
             Alert::toast('Access denied, you are not admin!', 'error');
             return redirect('/');
         }
-        Alert::toast('Access denied, you are not admin!', 'error');
+        Alert::toast('Access denied, please login!', 'error');
         return redirect('/admin');
     }
 }
