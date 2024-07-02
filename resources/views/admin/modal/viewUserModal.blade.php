@@ -55,6 +55,12 @@
                         <input type="text" class="form-control mt-2" name="profilephoto" value="{{$data->profile_photo}}" readonly>
                     </div>
                 </div>
+                <div class="mb-3 row">
+                    <label for="join-date" class="col-sm-5 col-form-label">Join Date</label>
+                    <div class="col-sm-7">                                  
+                        <input type="text" class="form-control" id="join-date" name="joinDate" value="{{$data->created_at}}" readonly>                        
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
