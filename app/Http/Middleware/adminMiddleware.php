@@ -18,12 +18,12 @@ class adminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->check() && auth()->user()->is_admin == 1) {
-            // return $next($request);
-            return redirect('/admin');
+            return $next($request);
         } elseif (auth()->check() && auth()->user()->is_admin == 0) {
+            Alert::toast('Access denied, you are not admin!', 'error');
             return redirect('/');
         }
         Alert::toast('Access denied, you are not admin!', 'error');
-        return back();
+        return redirect('/admin');
     }
 }
